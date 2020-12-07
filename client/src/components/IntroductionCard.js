@@ -5,8 +5,8 @@ export const IntroductionCard = () => {
     return (
         <section className="mt-5 container">
             <h2 className="text-center mb-5">Houses and Apartments</h2>
-            <div className="row">
-                <div className="col-md-4 mt-3">
+            <div className="row d-flex justify-content-center">
+                <div className="col-12 col-sm-12 col-md-6 col-lg-4 mt-3">
                     <div className="card" style={{width: "310px"}}>
                         <img src={add1} className="card-img-top" alt="Card description"/>
                         <div className="card-body">
@@ -22,7 +22,7 @@ export const IntroductionCard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 mt-3">
+                <div className="col-12 col-sm-12 col-md-6 col-lg-4 mt-3">
                     <div className="card" style={{width: "310px"}}>
                         <img src={add1} className="card-img-top" alt="Card description"/>
                         <div className="card-body">
@@ -38,7 +38,7 @@ export const IntroductionCard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 mt-3">
+                <div className="col-12 col-sm-12 col-md-6 col-lg-4 mt-3">
                     <div className="card" style={{width: "310px"}}>
                         <img src={add1} className="card-img-top" alt="Card description"/>
                         <div className="card-body">
@@ -54,7 +54,7 @@ export const IntroductionCard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 mt-3">
+                <div className="col-12 col-sm-12 col-md-6 col-lg-4 mt-3">
                     <div className="card" style={{width: "310px"}}>
                         <img src={add1} className="card-img-top" alt="Card description"/>
                         <div className="card-body">
@@ -70,7 +70,7 @@ export const IntroductionCard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 mt-3">
+                <div className="col-12 col-sm-12 col-md-6 col-lg-4 mt-3">
                     <div className="card" style={{width: "310px"}}>
                         <img src={add1} className="card-img-top" alt="Card description"/>
                         <div className="card-body">
@@ -86,7 +86,7 @@ export const IntroductionCard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 mt-3">
+                <div className="col-12 col-sm-12 col-md-6 col-lg-4 mt-3">
                     <div className="card" style={{width: "310px"}}>
                         <img src={add1} className="card-img-top" alt="Card description"/>
                         <div className="card-body">

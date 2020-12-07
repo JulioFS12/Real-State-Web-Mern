@@ -1,0 +1,23 @@
+{
+  "name": "real-state-backend",
+  "version": "1.0.0",
+  "description": "real state web application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "real",
+    "state",
+    "mern",
+    "backend",
+    "houses"
+  ],
+  "author": "julio flores",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.5",
+    "nodemon": "^2.0.6"
+  }
+}

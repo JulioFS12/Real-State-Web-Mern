@@ -1,26 +1,36 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-    Redirect,
     Route,
   Switch,
 } from "react-router-dom";
-import { LayoutAdmin } from '../layouts/LayoutAdmin';
-import { LayoutUser } from '../layouts/LayoutUser';
+import { routes } from './routes';
 
 export const AppRouter = () => {
     return (
         <>
             <Router>
-
                 <Switch>
-                    <Route exact={true} path="/admin" component={LayoutAdmin} />
-                    <Route exact={true} path="/" component={LayoutUser} />
-
-                    <Redirect to="/"/>
+                    {
+                        routes.map((route, index) => (
+                            <DashBoradAppRouter key={index} {...route}/>
+                        ))
+                    }
                 </Switch>
-
             </Router>
+        </>
+    )
+}
+
+const DashBoradAppRouter = (route) => {
+        
+    return (
+        <>
+            <Route 
+                exact={route.exact} 
+                path={route.path} 
+                render={(props) => <route.component routes={route.subRoutes} {...props} />}
+            />
         </>
     )
 }

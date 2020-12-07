@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import {
+    Redirect,
+    Route,
+    Switch,
+  } from "react-router-dom";
+import { AdminHome } from '../pages/AdminHome';
+import { AdminLogin } from '../pages/AdminLogin';
+import { AdminRegister } from '../pages/AdminRegister';
 
 export const LayoutAdmin = () => {
+
     return (
-        <div>
-            <h1>LayoutAdmin</h1>
-        </div>
+        <>
+            <Switch>
+                <Route exact={true} path="/admin" component={AdminLogin}/>
+                <Route exact={true} path="/admin/register" component={AdminRegister}/>
+                <Route exact={true} path="/admin/home" component={AdminHome}/>
+
+                <Redirect to="/admin"/>
+            </Switch>
+        </>
     )
 }

@@ -1,0 +1,18 @@
+.container-form{
+    height: 100vh;
+    width: 100vw;
+    background: rgb(107,11,185);
+    background: linear-gradient(90deg, rgba(107,11,185,0.9780287114845938) 0%, rgba(55,0,255,1) 51%, rgba(21,0,255,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__login{
+        width: 310px;
+        background: rgb(8,4,68);
+        background: linear-gradient(90deg, rgba(8,4,68,1) 0%, rgba(8,4,68,1) 51%, rgba(8,4,68,1) 100%);
+        padding: 30px;
+        border-radius: 7px;
+        color: #ffffff;
+    }
+}

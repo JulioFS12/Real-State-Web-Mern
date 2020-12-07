@@ -1,0 +1,17 @@
+.container-form {
+  height: 100vh;
+  width: 100vw;
+  background: #6b0bb9;
+  background: linear-gradient(90deg, rgba(107, 11, 185, 0.9780287115) 0%, #3700ff 51%, #1500ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-form__login {
+  width: 310px;
+  background: #080444;
+  background: linear-gradient(90deg, #080444 0%, #080444 51%, #080444 100%);
+  padding: 30px;
+  border-radius: 7px;
+  color: #ffffff;
+}
