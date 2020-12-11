@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { validate } from '../helpers/form-validate';
 import { useForm } from '../hooks/useForm';
+import { useDispatch } from 'react-redux'
+import { startRegister } from '../redux/actions/auth';
 
 export const AdminRegister = () => {
+
+    const dispatch = useDispatch()
 
     const initialState = {
         name: '',
@@ -25,11 +30,11 @@ export const AdminRegister = () => {
                     const validResponse = validate(email, password);
     
                     validResponse.email && validResponse.password
-                    ?console.log('Saved')
-                    :console.log('The email or password are wrong');
-                } else { console.log('The name is very short') }
-            }else {console.log('The password have be equals')  }
-        }else{ console.log('You have accept ours Privacy Statementt')  }
+                    ?dispatch( startRegister(name, email, password) )
+                    :Swal.fire('Error','The email or password are wrong')
+                } else { Swal.fire('Error','The name is very short') }
+            }else {Swal.fire('Error','The password most be equals'); }
+        }else{Swal.fire('Error','You have accept ours Privacy Statementt'); }
     }
 
     return (

@@ -4,14 +4,15 @@ import { validate } from '../helpers/form-validate';
 import { useForm } from '../hooks/useForm';
 import { useDispatch } from 'react-redux';
 import { startLogin } from '../redux/actions/auth';
+import Swal from 'sweetalert2';
 
 export const AdminLogin = () => {
 
     const dispatch = useDispatch();
     
     const initialState = {
-        email:'',
-        password:'',
+        email:'juliocesarflores12@gmail.com',
+        password:'123123',
     }
 
     const [ values, handleInputChange] = useForm(initialState);
@@ -25,7 +26,7 @@ export const AdminLogin = () => {
         
         validResponse.email && validResponse.password
         ?dispatch(startLogin(email, password))
-        :console.log('Any things was wrong')
+        :Swal.fire('Error','Please, verify the information')
     }
 
     return (
