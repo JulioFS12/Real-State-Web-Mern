@@ -1,24 +1,29 @@
+import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
 import { fetchWithoutToken, fetchWithToken } from "../../configs/config"
 import { types } from "../types/types";
 
 
-export const startLogin = ( email, password ) => {
+export const startLogin = ( email, password, history ) => {
     return async( dispatch ) => {
 
         const resp = await fetchWithoutToken( 'adminauth/login', { email, password }, 'POST' );
         const body = await resp.json();
-
+        
         if( body.ok ) {
             localStorage.setItem('token', body.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
-
+            
             dispatch( Login({
                 uid: body.aid,
                 name: body.name
             }) );
+
+            return true;
+
         } else {
             Swal.fire('Error', body.msg);
+            return false;
         }
     } 
 }
@@ -48,7 +53,7 @@ export const startChecking = () => {
 
         const resp = await fetchWithToken( 'adminauth/renew' );
         const body = await resp.json();
-        console.log(body);
+        
         if(body.ok){
             localStorage.setItem('token', body.token);
             localStorage.setItem('token-init-date', new Date().getTime());
@@ -58,7 +63,6 @@ export const startChecking = () => {
                 name: body.name,
             }));
         } else {
-            Swal.fire('Error', body.msg);
             dispatch( checkingFinish() );
         }
     }

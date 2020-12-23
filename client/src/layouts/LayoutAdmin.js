@@ -1,58 +1,21 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-    Redirect,
-    Route,
-    Switch,
-  } from "react-router-dom";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect, Switch } from 'react-router-dom';
+import { NoFound } from '../components/NoFound';
 import { AdminHome } from '../pages/AdminHome';
-import { AdminLogin } from '../pages/AdminLogin';
-import { AdminRegister } from '../pages/AdminRegister';
-import { startChecking } from '../redux/actions/auth';
-import { PrivateRoute } from './PrivateRoute';
-import { PublicRoute } from './PublicRoute';
+import { PrivateRoute } from '../routes/PrivateRoute';
+
 
 export const LayoutAdmin = () => {
 
-    const { checking, aid } = useSelector(state => state.auth)
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        
-        dispatch( startChecking() );
-
-    }, [dispatch]);
-
-    if( checking ){
-        return <h1>WAIT...</h1>
-    }
-
+    const { aid } = useSelector(state => state.auth)
+    console.log('LayoutAdmin');
     return (
-        <>
-            <Switch>
-                <PublicRoute 
-                    exact={true} 
-                    path="/admin" 
-                    component={AdminLogin} 
-                    isAuthenticated={ !!aid }
-                />
+        <Switch>
+            <PrivateRoute exact={ true } path="/admin" component={ AdminHome } isAuthenticated={ !!aid }/>
+            <PrivateRoute exact={ true } path="/nofound" component={ NoFound } isAuthenticated={ !!aid }/>
 
-                <PublicRoute 
-                    exact={true} 
-                    path="/admin/register" 
-                    component={AdminRegister} 
-                    isAuthenticated={ !!aid }
-                />
-
-                <PrivateRoute 
-                    exact={true} 
-                    path="/admin/home" 
-                    component={AdminHome} 
-                    isAuthenticated={ !!aid } 
-                />
-
-            </Switch>
-        </>
+            <Redirect to="/nofound" />
+        </Switch>
     )
 }

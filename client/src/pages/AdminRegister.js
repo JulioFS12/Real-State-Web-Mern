@@ -98,7 +98,7 @@ export const AdminRegister = () => {
                 </div>
                 <div className="form-group form-check text-center">
                     <label className="form-check-label" htmlFor="exampleCheck1">
-                        <Link to="/admin">I have acount?</Link>
+                        <Link to="/login">I have acount?</Link>
                     </label>
                 </div>
                 <button 

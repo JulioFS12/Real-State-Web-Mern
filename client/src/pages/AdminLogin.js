@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { startLogin } from '../redux/actions/auth';
 import Swal from 'sweetalert2';
 
-export const AdminLogin = () => {
+export const AdminLogin = ({history}) => {
 
     const dispatch = useDispatch();
     
@@ -21,11 +21,11 @@ export const AdminLogin = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        
         const validResponse = validate(email, password);
         
         validResponse.email && validResponse.password
-        ?dispatch(startLogin(email, password))
+        ?dispatch( resp = startLogin(email, password, history))
         :Swal.fire('Error','Please, verify the information')
     }
 
@@ -57,7 +57,7 @@ export const AdminLogin = () => {
                 </div>
                 <div className="form-group form-check text-center">
                     <label className="form-check-label" htmlFor="exampleCheck1">
-                        <Link to="/admin/register">Create Acount</Link>
+                        <Link to="/register">Create Acount</Link>
                     </label>
                 </div>
                 <button 
